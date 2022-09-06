@@ -1,9 +1,24 @@
 package customer;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+// this what we need to mab our application thr the database.
+@Entity
+@Table
 public class Customer {
-
+    // using these dependencies injections to mab to database.
+    @Id
+    @SequenceGenerator(
+            name = "customer_sequence",
+            sequenceName = "customer_sequence",
+            allocationSize = 1
+    )
+    // these values are recommended for PostGreSQL
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
     private Long id;
     private String fistName;
     private String surName;
