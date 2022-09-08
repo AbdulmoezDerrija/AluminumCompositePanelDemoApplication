@@ -2,6 +2,7 @@ package com.example.aluminumcompositepaneldemoapplication.customer;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 // this what we need to mab our application thr the database.
 @Entity
@@ -24,6 +25,7 @@ public class Customer {
     private String surName;
     private String email;
     private String nationality;
+    @Transient
     private Integer age;
     private LocalDate dob;
     private String phoneNumber;
@@ -34,7 +36,6 @@ public class Customer {
                     String surName,
                     String email,
                     String nationality,
-                    Integer age,
                     LocalDate dob,
                     String phoneNumber,
                     String address) {
@@ -42,7 +43,6 @@ public class Customer {
         this.surName = surName;
         this.email = email;
         this.nationality = nationality;
-        this.age = age;
         this.dob = dob;
         this.phoneNumber = phoneNumber;
         Address = address;
@@ -52,7 +52,6 @@ public class Customer {
                     String surName,
                     String email,
                     String nationality,
-                    Integer age,
                     LocalDate dob,
                     String phoneNumber,
                     String address) {
@@ -61,7 +60,6 @@ public class Customer {
         this.surName = surName;
         this.email = email;
         this.nationality = nationality;
-        this.age = age;
         this.dob = dob;
         this.phoneNumber = phoneNumber;
         Address = address;
@@ -98,7 +96,7 @@ public class Customer {
         this.nationality = nationality;
     }
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
     public void setAge(Integer age) {
         this.age = age;

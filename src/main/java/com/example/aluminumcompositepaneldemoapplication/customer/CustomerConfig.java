@@ -20,7 +20,6 @@ public class CustomerConfig {
                     "Steve",
                     "AhmedSteve@gmail.com",
                     "Libyan",
-                    20,
                     LocalDate.of(2002, Month.JANUARY, 25),
                     "0925752564",
                     "Tripoli, Algraba street"
@@ -30,7 +29,6 @@ public class CustomerConfig {
                     "Ali",
                     "AlexAli@gmail.com",
                     "Libyan",
-                    21,
                     LocalDate.of(2001, Month.FEBRUARY, 9),
                     "0924837483",
                     "Tripoli, Aldol street"
