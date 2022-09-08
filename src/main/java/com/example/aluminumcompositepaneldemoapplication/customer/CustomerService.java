@@ -16,8 +16,11 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    @GetMapping
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
+    }
+
+    public void addNewCustomer(Customer customer) {
+        System.out.println(customer);
     }
 }
