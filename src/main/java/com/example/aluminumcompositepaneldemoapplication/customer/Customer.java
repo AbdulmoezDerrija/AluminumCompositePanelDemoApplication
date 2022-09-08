@@ -95,6 +95,8 @@ public class Customer {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+    // instead of writing the age manually I used @Transient to mention it, that it is not that important to be included in my database.
+    // but it will still be visible in the customer database, but not as colum. by using Period.between(this.dob, LocalData.now()).getYears();
     public Integer getAge() {
         return Period.between(this.dob, LocalDate.now()).getYears();
     }
