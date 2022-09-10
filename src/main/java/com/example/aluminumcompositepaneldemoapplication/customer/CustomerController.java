@@ -9,7 +9,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
-@RequestMapping(value = "/api/v1/customer", method = GET)
+@RequestMapping(value = "/api/v1/customer")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -20,7 +20,7 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<Customer> getCustomers (){
+    public List<Customer> getCustomers() {
         return customerService.getCustomers();
 
     }
@@ -28,6 +28,11 @@ public class CustomerController {
     @PostMapping
     public void registerNewCustomer(@RequestBody Customer customer) {
         customerService.addNewCustomer(customer);
+    }
+
+    @DeleteMapping(path = "{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Long customerId) {
+        customerService.deleteCustomer(customerId);
     }
 }
 

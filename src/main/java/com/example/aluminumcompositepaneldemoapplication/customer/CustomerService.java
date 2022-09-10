@@ -1,9 +1,7 @@
 package com.example.aluminumcompositepaneldemoapplication.customer;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,9 +22,19 @@ public class CustomerService {
 
     public void addNewCustomer(Customer customer) {
         Optional<Customer> customerOptional = customerRepository
-                .findCustomerBYEmail(customer.getEmail());
-        if (customerOptional.isPresent()) throw new IllegalStateException("Email Is already used!.");
+                .findCustomerByEmail(customer.getEmail());
+        if (customerOptional.isPresent()) {
+            throw new IllegalStateException("Email is already used!.");
+        }
         customerRepository.save(customer);
+    }
+
+    public void deleteCustomer(Long customerId) {
+        boolean customerExists = customerRepository.existsById(customerId);
+        if (!customerExists) {
+            throw new IllegalStateException("the customer ID " + customerId + " provided, does NOT exists!.");
+        }
+        customerRepository.deleteById(customerId);
 
     }
 }

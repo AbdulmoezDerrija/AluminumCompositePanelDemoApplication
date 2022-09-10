@@ -6,9 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    @Query("SELECT c FROM Customer c WHERE c.email = ?1")
-    Optional<Customer> findCustomerBYEmail(String email);
+    @Query("SELECT s FROM Customer s WHERE s.email = ?1")
+    Optional<Customer> findCustomerByEmail(String email);
+
 }
