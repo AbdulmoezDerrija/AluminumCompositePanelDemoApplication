@@ -38,8 +38,8 @@ public class CustomerController {
     @PutMapping(path = "{customerId}")
     public void updateCustomerById(
             @PathVariable("customerId") Long customerId,
-            @PathVariable(required = false) String fistName,
-            @PathVariable(required = false) String email) {
+            @RequestParam(required = false) String fistName,
+            @RequestParam(required = false) String email) {
         customerService.updateCustomerById(customerId, fistName, email);
     }
 }
