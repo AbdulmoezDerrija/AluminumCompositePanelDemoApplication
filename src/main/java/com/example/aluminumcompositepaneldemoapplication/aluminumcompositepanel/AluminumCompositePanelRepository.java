@@ -1,4 +1,4 @@
-package com.example.aluminumcompositepaneldemoapplication.panel;
+package com.example.aluminumcompositepaneldemoapplication.aluminumcompositepanel;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

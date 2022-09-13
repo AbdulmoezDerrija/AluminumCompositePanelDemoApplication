@@ -1,6 +1,4 @@
-package com.example.aluminumcompositepaneldemoapplication.panel;
-
-import org.hibernate.annotations.Tables;
+package com.example.aluminumcompositepaneldemoapplication.aluminumcompositepanel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
