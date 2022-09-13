@@ -60,4 +60,11 @@ public class CustomerService {
             customer.setEmail(email);
         }
     }
+
+    public Customer getCustomer(Long customerId) {
+        Customer customerById = customerRepository.
+                findById(customerId).
+                orElseThrow(() -> new IllegalStateException("The customer with " + customerId + " ID, doesn't exists!."));
+        return customerById;
+    }
 }
