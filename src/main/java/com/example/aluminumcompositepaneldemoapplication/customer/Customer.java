@@ -1,13 +1,14 @@
 package com.example.aluminumcompositepaneldemoapplication.customer;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
 // this what we need to mab our application thr the database.
 @Entity
-@Table
-public class Customer {
+@Table ()
+public class Customer implements Serializable {
 //  using these dependencies injections to mab to database.
     @Id
     @SequenceGenerator(
