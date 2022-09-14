@@ -3,9 +3,8 @@ package com.example.aluminumcompositepaneldemoapplication.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.DocFlavor;
 import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
@@ -25,9 +24,19 @@ public class CustomerController {
 
     }
 
-    @GetMapping(path = "{customerId}")
-    public Customer getCustomers(@PathVariable("customerId") Long customerId) {
-        return customerService.getCustomer(customerId);
+//    @GetMapping(path = "{customerId}")
+//    public Customer getCustomerById(@PathVariable("customerId") Long customerId) {
+//        Customer customerById = customerService.
+//                getCustomerById(customerId);
+//        return customerById;
+//
+//    }
+
+    @GetMapping(path = ("{customerEmail}"))
+    public Customer getCustomerByEmail(@PathVariable("customerEmail") String customerEmail) {
+        Customer customerByEmail = customerService.
+                getCustomerByPhoneNumber(customerEmail);
+        return customerByEmail;
 
     }
 

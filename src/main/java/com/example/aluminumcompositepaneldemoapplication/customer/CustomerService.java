@@ -22,6 +22,26 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+//    public Customer getCustomerById(Long customerId) {
+//        Customer customerById = customerRepository.
+//                findById(customerId).
+//                orElseThrow(() -> new IllegalStateException("The customer with " + customerId + " ID, doesn't exists!."));
+//        return customerById;
+//    }
+
+    public Customer getCustomerByPhoneNumber(String email) {
+        if (email != null &&
+                email.contains("@") &&
+                email.contains(".com"))
+        {
+            Customer customerByEmail = customerRepository.
+                    findCustomerByEmail(email).
+                    orElseThrow(() -> new IllegalStateException("This email doesn't exists!."));
+            return customerByEmail;
+        }
+        else throw new IllegalStateException("Email is Wrong. Missing @ or .com");
+    }
+
     public void addNewCustomer(Customer customer) {
         Optional<Customer> customerOptional = customerRepository
                 .findCustomerByEmail(customer.getEmail());
@@ -55,16 +75,9 @@ public class CustomerService {
                 !Objects.equals(customer.getEmail(), email)) {
             Optional<Customer> customerOptional = customerRepository.findCustomerByEmail(email);
             if (customerOptional.isPresent()) {
-                throw new IllegalStateException("email taken!.");
+                throw new IllegalStateException("email already used!.");
             }
             customer.setEmail(email);
         }
-    }
-
-    public Customer getCustomer(Long customerId) {
-        Customer customerById = customerRepository.
-                findById(customerId).
-                orElseThrow(() -> new IllegalStateException("The customer with " + customerId + " ID, doesn't exists!."));
-        return customerById;
     }
 }

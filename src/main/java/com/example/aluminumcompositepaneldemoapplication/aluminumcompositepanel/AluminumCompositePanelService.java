@@ -1,6 +1,5 @@
 package com.example.aluminumcompositepaneldemoapplication.aluminumcompositepanel;
 
-import com.example.aluminumcompositepaneldemoapplication.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
